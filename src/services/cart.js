@@ -24,6 +24,7 @@ const headers = {
 
 // Cart Service to interact with the backend API for add, get, empty and Update operations.
 class CartService {
+  // to add items in the cart according to the user email.
   addItems(email, productsToAdd) {
     return instance.post(
       "",
@@ -32,14 +33,17 @@ class CartService {
     );
   }
 
+  // get items of the cart for particular user.
   getItems(email) {
     return instance.post("id", { email: email }, { headers: headers });
   }
 
+  // Function to delete all items present in the cart
   emptyCart(email) {
     return instance.put("empty", { email: email }, { headers: headers });
   }
 
+  // Function to update the cart in the backend DB.
   updateCart(email, productsToUpdate) {
     return instance.put(
       "update",

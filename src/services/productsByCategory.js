@@ -17,7 +17,7 @@ class ProductCategory {
     return axios.get(newUrl, { headers: headers });
   }
 
-  //
+  // Getting product category according to the category id
   getProductCategory(id) {
     const url = `http://localhost:8081/user/categoryById/${id}`;
     return axios.get(url, { headers: headers });

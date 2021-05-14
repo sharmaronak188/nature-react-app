@@ -21,6 +21,7 @@ const headers = {
 
 // Order Service to add and get items from the cart
 class OrderService {
+  // Adding items to the orders collection from the cart.
   addItems(email, total_per_item, total) {
     return instance.post(
       "add",
@@ -29,6 +30,7 @@ class OrderService {
     );
   }
 
+  // Getting all the orders item from the orders collection
   getItems(email) {
     return instance.post("", { email: email }, { headers: headers });
   }

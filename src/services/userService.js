@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as moment from "moment"; // Library for parsing, validating, formatting dates
+import * as moment from "moment"; // Library for parsing, validating, formatting dates.
 
 const USER_API_BASE_URL = "http://localhost:8081/user/";
 const headers = {
@@ -7,7 +7,7 @@ const headers = {
 };
 
 class UserService {
-  // Sign Up function to post the data to the DB which is entered bythe user
+  // Sign Up function to post the data to the DB which is entered by the user
   signUp(name, email, password) {
     return axios.post(
       USER_API_BASE_URL,
