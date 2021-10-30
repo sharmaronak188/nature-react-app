@@ -57,32 +57,31 @@ class Header extends React.Component {
       <img src="/assets/Logo/logoTreeBig.jpg" alt="Tree logo" />
       <h2>Nature's Paradise<br />
         <span>Make your Home a Greener Place !!</span></h2>
-      <p>{!this.state.loggedIn && <NavLink
+      <p>{!this.state.loggedIn ? <NavLink
         activeClassName="menu_active"
         className="nav-link"
         to="/login"
       >
         Login
-                </NavLink>
+      </NavLink>
+        :
+        <span>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <AccountCircleIcon />
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={this.state.anchorEl}
+            keepMounted
+            open={Boolean(this.state.anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem><a href="/cart"><ShoppingCartRoundedIcon style={{ color: yellow[500] }} /></a></MenuItem>
+            <MenuItem><Link to="/orders">My Orders</Link></MenuItem>
+            <MenuItem onClick={this.logout}><a href="/login"><ExitToAppRoundedIcon style={{ color: red[500] }} /></a></MenuItem>
+          </Menu>
+        </span>
       }
-        {
-          this.state.loggedIn && <span>
-            <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-              <AccountCircleIcon />
-            </Button>
-            <Menu
-              id="simple-menu"
-              anchorEl={this.state.anchorEl}
-              keepMounted
-              open={Boolean(this.state.anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem><a href="/cart"><ShoppingCartRoundedIcon style={{ color: yellow[500] }} /></a></MenuItem>
-              <MenuItem><Link to="/orders">My Orders</Link></MenuItem>
-              <MenuItem onClick={this.logout}><a href="/login"><ExitToAppRoundedIcon style={{ color: red[500] }} /></a></MenuItem>
-            </Menu>
-          </span>
-        }
       </p>
     </div>);
   }
